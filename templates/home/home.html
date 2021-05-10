@@ -1,0 +1,149 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Solar Currency - Home</title>
+
+   <!-- Custom styles for this template-->
+  <link rel="stylesheet" type='text/css' href='{% static "home/main.css" %}'>
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'main-home' %} ">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-8">Solar Currency</div>
+      </a>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href=" {% url 'main-home' %} ">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'table' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span><h5>Energy Transaction Details</h5></span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'profile' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span><h5>Profile</h5></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span><h5>Logout</h5></span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-blue topbar mb-4 static-top shadow">
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link" href="{% url 'profile' %}" >
+                <span class="mr-4"><h3 style="color : black"> {{ user.username }} </h3></span>
+                <img class="img-profile rounded-circle" src="{{ user.profile.image.url }}">
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Extra energy available -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-20 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Extra Energy Available</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">54.5 Units</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SolarEcoins -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-20 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Your SolarEcoins Wallet</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">12.5 SS</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+              <!-- BUY SELL Energy -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">Buy/Sell Energy</h4>
+                </div>
+                <div class="card-body">
+                  <h5><b>Current rate: 10 units for 1 SolarEcoin</b></h5>
+                  <a href="{% url 'buy' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> BUY </a>
+                  <a href="{% url 'sell' %}"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> SELL</a>
+                  <p class="mb-0"> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+</body>
+
+</html>

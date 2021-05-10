@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+      <!-- FORM HERE -->
+        <form method="POST">
+            {% csrf_token %}       <!-- To increase security of password by using Django csrf method.-->
+            <fieldset class="form-group">
+                <legend class="border bottom mb-5"> Transaction </legend>
+                {{ form|crispy }}      <!-- Crispy forms used to manage forms -->   <!-- Buy form-->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Buy</button>
+            </div>
+
+        </form>
+    </div>
+{% endblock content%}
