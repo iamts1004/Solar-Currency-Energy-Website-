@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}     <!-- to add security to the password by using Django in-built csrf method. -->
+            <fieldset class="form-group">
+                <legend class="border bottom mb-5"><b>Log In</b></legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+
+        </form>
+        <div class="border-top pt-4">
+            <small class="text-muted">
+                Do you need an account? <a class="ml-2" href="{% url 'register' %}"> Sign Up.</a>    <!-- added registration link in Sign up button.-->
+            </small>
+
+        </div>
+
+    </div>
+{% endblock content%}
+
